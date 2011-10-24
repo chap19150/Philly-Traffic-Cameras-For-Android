@@ -4,20 +4,36 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="7" />
+    <uses-sdk android:minSdkVersion="4" />
 
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
             android:label="@string/app_name"
-            android:name=".PhilaTrafficActivity" >
+            android:name=".HomeActivity" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".PhilaTrafficActivity" >
+        </activity>
+        <meta-data android:name="com.mobclix.APPLICATION_ID"
+			android:value="1464D6D5-4411-44C2-8A90-C88C0A5C7EB6"/>
+		<activity
+			android:name="com.mobclix.android.sdk.MobclixBrowserActivity"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     </application>
-
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+	<uses-permission android:name="android.permission.GET_TASKS"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
 </manifest>

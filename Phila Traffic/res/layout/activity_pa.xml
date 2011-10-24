@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <fragment android:name="com.chapslife.philly.traffic.PAExpandableFragment"
+        android:id="@+id/fragment_dashboard"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+
+    <fragment android:name="com.chapslife.philly.traffic.MobclixFragment"
+        android:id="@+id/fragment_mobclix"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/adview_height" />
+
+</LinearLayout>

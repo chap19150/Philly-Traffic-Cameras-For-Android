@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:id="@+id/adview_linear"
+    android:layout_height="@dimen/adview_height"
+    android:background="#FFFFFF"
+    android:layout_marginBottom="0dip"
+    android:orientation="horizontal"
+    android:baselineAligned="false" />
