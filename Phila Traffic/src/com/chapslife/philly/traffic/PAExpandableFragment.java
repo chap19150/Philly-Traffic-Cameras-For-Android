@@ -3,8 +3,10 @@ package com.chapslife.philly.traffic;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chapslife.philly.traffic.DashboardFragment.OnButtonSelectedListener;
 import com.chapslife.philly.traffic.adapters.InfoDetailsAdapter;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,7 +20,10 @@ public class PAExpandableFragment extends Fragment{
 	private ArrayList<String> paGroup;
 	private ArrayList<List<String>> paChild;
 	private ExpandableListView paEpView;
-
+	private InfoDetailsAdapter paAdapter;
+	private String title;
+	protected String mURL;
+	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -32,10 +37,613 @@ public class PAExpandableFragment extends Fragment{
 	}
 	
 	private void setupPAView() {
-		
-		paEpView.setAdapter(new InfoDetailsAdapter(getActivity(),paGroup,paChild));
+		paAdapter = new InfoDetailsAdapter(getActivity(),paGroup,paChild);
+		paEpView.setAdapter(paAdapter);
 		paEpView.setFastScrollEnabled(true);
+		paEpView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+			public boolean onChildClick(ExpandableListView parent,
+                    View v, int groupPosition, int childPosition,
+                    long id) {
+				title = paAdapter.getChild(groupPosition, childPosition).toString();
+				if (groupPosition == 0) {
+                	if (childPosition == 0){
+                		//mURL = "http://webvideoserv.deldot.gov/video.jpg?source=CAM082&framerate=1";
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam093.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam094.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam095.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam096.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam097.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam098.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam099.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam100.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam101.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam074.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam133.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam134.jpg";
+        			}else if (childPosition == 12){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam135.jpg";
+        			}else if (childPosition == 13){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam136.jpg";
+        			}else if (childPosition == 14){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam137.jpg";        				
+        			}else if (childPosition == 15){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam138.jpg";
+        			}else if (childPosition == 16){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam139.jpg";
+        			}else if (childPosition == 17){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam140.jpg";
+        			}else if (childPosition == 18){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam141.jpg";
+        			}else if (childPosition == 19){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam142.jpg";        				
+        			}else if (childPosition == 20){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam143.jpg";
+        			}else if (childPosition == 21){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam144.jpg";
+        			}else if (childPosition == 22){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam145.jpg";
+        			}else if (childPosition == 23){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam146.jpg";
+        			}else if (childPosition == 24){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam147.jpg";        				
+        			}else if (childPosition == 25){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam148.jpg";
+        			}else if (childPosition == 26){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam149.jpg";
+        			}else if (childPosition == 27){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam150.jpg";
+        			}else if (childPosition == 28){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam151.jpg";
+        			}else if (childPosition == 29){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam152.jpg";        				
+        			}else if (childPosition == 30){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam153.jpg";
+        			}else if (childPosition == 31){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam154.jpg";
+        			}else if (childPosition == 32){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam155.jpg";
+        			}else if (childPosition == 33){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam156.jpg";
+        			}else if (childPosition == 34){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam157.jpg";        				
+        			}else if (childPosition == 35){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam158.jpg";
+        			}else if (childPosition == 36){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam159.jpg";
+        			}else if (childPosition == 37){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam161.jpg";
+        			}else if (childPosition == 38){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam173.jpg";
+        			}else if (childPosition == 39){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam174.jpg";        				
+        			}else if (childPosition == 40){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam175.jpg";
+        			}else if (childPosition == 41){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam176.jpg";        				
+        			}
+                }else if (groupPosition == 1) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam102.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam103.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam104.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam105.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam106.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam107.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam108.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam109.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam110.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam111.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam112.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam113.jpg";
+        			}else if (childPosition == 12){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam114.jpg";
+        			}else if (childPosition == 13){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam115.jpg";
+        			}else if (childPosition == 14){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam116.jpg";        				
+        			}else if (childPosition == 15){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam117.jpg";
+        			}else if (childPosition == 16){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam001.jpg";
+        			}else if (childPosition == 17){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam002.jpg";
+        			}else if (childPosition == 18){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam003.jpg";
+        			}else if (childPosition == 19){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam004.jpg";        				
+        			}else if (childPosition == 20){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam005.jpg";
+        			}else if (childPosition == 21){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam006.jpg";
+        			}else if (childPosition == 22){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam007.jpg";
+        			}else if (childPosition == 23){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam008.jpg";
+        			}else if (childPosition == 24){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam009.jpg";        				
+        			}else if (childPosition == 25){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam010.jpg";
+        			}else if (childPosition == 26){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam093.jpg";
+        			}else if (childPosition == 27){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam026.jpg";
+        			}else if (childPosition == 28){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam027.jpg";
+        			}
+                }else if (groupPosition == 2) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam011.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam012.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam013.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam014.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam015.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam016.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam017.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam018.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam019.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam020.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam021.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam022.jpg";
+        			}else if (childPosition == 12){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam023.jpg";
+        			}else if (childPosition == 13){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam024.jpg";
+        			}else if (childPosition == 14){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam122.jpg";        				
+        			}else if (childPosition == 15){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam123.jpg";
+        			}else if (childPosition == 16){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam124.jpg";
+        			}else if (childPosition == 17){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam125.jpg";
+        			}else if (childPosition == 18){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam196.jpg";
+        			}else if (childPosition == 19){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam197.jpg";        				
+        			}else if (childPosition == 20){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam198.jpg";
+        			}else if (childPosition == 21){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam199.jpg";
+        			}else if (childPosition == 22){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam200.jpg";
+        			}else if (childPosition == 23){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam201.jpg";
+        			}else if (childPosition == 24){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam202.jpg";        				
+        			}else if (childPosition == 25){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam203.jpg";
+        			}else if (childPosition == 26){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam204.jpg";
+        			}else if (childPosition == 27){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam205.jpg";
+        			}else if (childPosition == 28){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam206.jpg";
+        			}else if (childPosition == 29){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam207.jpg";
+        			}else if (childPosition == 30){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam208.jpg";
+        			}else if (childPosition == 31){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam209.jpg";
+        			}
+                }else if (groupPosition == 3) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam028.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam029.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam030.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam031.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam032.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam033.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam034.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam035.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam036.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam037.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam039.jpg";
+        			}
+                }else if (groupPosition == 4) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam162.jpg";
+        			}
+                }else if (groupPosition == 5) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam118.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam120.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam121.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam119.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam179.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam180.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam181.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam182.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam183.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam184.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam190.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam191.jpg";
+        			}else if (childPosition == 12){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam192.jpg";
+        			}else if (childPosition == 13){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam193.jpg";
+        			}else if (childPosition == 14){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam194.jpg";        				
+        			}else if (childPosition == 15){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam195.jpg";
+        			}else if (childPosition == 16){
+        				mURL = "http://164.156.16.43/public/Districts/District5/WebCams/Rt309&TilghmanStreet.jpg";
+        			}
+                }else if (groupPosition == 6) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam126.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam127.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam128.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam129.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam130.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam131.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam132.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam177.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam178.jpg";
+        			}
+                }else if (groupPosition == 7) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam166.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam167.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam168.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam169.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam170.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam171.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam172.jpg";
+        			}
+                }else if (groupPosition == 8) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam210.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam211.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam212.jpg";
+        			}
+                }else if (groupPosition == 9) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam075.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam076.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam077.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam078.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam079.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam080.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam081.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District8/WebCams/img_CCTV_30-NS_mpu001_ch0.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District8/WebCams/img_CCTV_30-WEST_mpu001_ch0.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District8/WebCams/img_CCTV_30-283_mpu001_ch0.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District8/WebCams/img_CCTV_30-501_mpu001_ch0.jpg";
+        			}
+                }else if (groupPosition == 10) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam092.jpg";
+        			}
+                }else if (groupPosition == 11) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam040.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam041.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam042.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam043.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam044.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam045.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam046.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam047.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam048.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam049.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam050.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam051.jpg";
+        			}else if (childPosition == 12){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam052.jpg";
+        			}else if (childPosition == 13){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam053.jpg";
+        			}else if (childPosition == 14){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam054.jpg";        				
+        			}else if (childPosition == 15){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam055.jpg";
+        			}else if (childPosition == 16){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam056.jpg";
+        			}else if (childPosition == 17){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam057.jpg";
+        			}else if (childPosition == 18){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam058.jpg";
+        			}else if (childPosition == 19){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam059.jpg";        				
+        			}else if (childPosition == 20){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam060.jpg";
+        			}else if (childPosition == 21){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam061.jpg";
+        			}else if (childPosition == 22){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam062.jpg";
+        			}else if (childPosition == 23){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam063.jpg";
+        			}else if (childPosition == 24){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam064.jpg";        				
+        			}else if (childPosition == 25){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam065.jpg";
+        			}else if (childPosition == 26){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam066.jpg";
+        			}else if (childPosition == 27){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam067.jpg";
+        			}else if (childPosition == 28){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam068.jpg";
+        			}else if (childPosition == 29){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam069.jpg";
+        			}else if (childPosition == 30){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam070.jpg";
+        			}else if (childPosition == 31){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam071.jpg";
+        			}else if (childPosition == 32){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam072.jpg";
+        			}else if (childPosition == 33){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam073.jpg";
+        			}
+                }else if (groupPosition == 12) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam082.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam083.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam084.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam085.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam086.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam087.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam088.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam089.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam090.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam091.jpg";
+        			}
+                }else if (groupPosition == 13) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam164.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam165.jpg";
+        			}
+                }else if (groupPosition == 14) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam160.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam163.jpg";
+        			}
+                }else if (groupPosition == 15) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam213.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam214.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam215.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam216.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam217.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam218.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam219.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam220.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam221.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam222.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam223.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam224.jpg";
+        			}
+                }else if (groupPosition == 16) {
+                	if (childPosition == 0){
+                		mURL = "http://www.paturnpike.com/webmap/1_devices/cam160109.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.paturnpike.com/webmap/1_devices/cam160101.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.paturnpike.com/webmap/1_devices/cam160108.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.paturnpike.com/webmap/1_devices/cam160102.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.paturnpike.com/webmap/1_devices/cam160107.jpg";
+        			}
+                }else if (groupPosition == 17) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&Rt100.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&CedarCrestBlvd.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&Rt145.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&Rt22Split.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&LehighStreet.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&Rt412.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&Rt222.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&Rt33.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/I78&MorganHill.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam029.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam028.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam027.jpg";
+        			}else if (childPosition == 12){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam026.jpg";
+        			}else if (childPosition == 13){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam025.jpg";
+        			}
+                }else if (groupPosition == 18) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam033.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam034.jpg";
+        			}
+                }else if (groupPosition == 19) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam032.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam031.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam030.jpg";
+        			}
+                }else if (groupPosition == 20) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/D5cam035.jpg";
+        			}
+                }else if (groupPosition == 21) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&15thStreet.jpg";
+        			}else if (childPosition == 1){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&Rt309.jpg";
+        			}else if (childPosition == 2){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&CedarCrest.jpg";
+        			}else if (childPosition == 3){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&Rt145.jpg";
+        			}else if (childPosition == 4){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&AirportRoad.jpg";
+        			}else if (childPosition == 5){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&FullertonAve.jpg";
+        			}else if (childPosition == 6){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&SchoenersvilleRoad.jpg";
+        			}else if (childPosition == 7){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&Rt512.jpg";        				
+        			}else if (childPosition == 8){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&Rt191.jpg";
+        			}else if (childPosition == 9){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&Rt33.jpg";
+        			}else if (childPosition == 10){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt22&4th.jpg";
+        			}else if (childPosition == 11){
+        				mURL = "http://www.dot35.state.pa.us/public/Districts/District6/WebCams/D6Cam224.jpg";
+        			}
+                }else if (groupPosition == 22) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt.22EBWB.jpg";
+        			}
+                }else if (groupPosition == 23) {
+                	if (childPosition == 0){
+                		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt33&Rt248.jpg";
+        			}
+                }
+				mListener.onCameraSelected(mURL);
+				return false;
+			}
+			
+		});
 	}
+	
+	OnCameraSelectedListener mListener;
+	
+	// Container Activity must implement this interface
+    public interface OnCameraSelectedListener {
+        public void onCameraSelected(String _url);
+    }
+    
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (OnCameraSelectedListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnCameraSelectedListener");
+        }
+    }
+    
 	public void initialPAData(){  
         paGroup = new ArrayList<String>();  
           
