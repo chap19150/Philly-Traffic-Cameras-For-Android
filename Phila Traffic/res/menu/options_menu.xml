@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 	<item android:id="@+id/menu_shortcut"
-          android:title="Shortcut" />
+	    android:icon="@drawable/ic_input_add"
+        android:title="Add Shortcut" 
+        android:showAsAction="ifRoom|withText"/>
     <item android:id="@+id/menu_favs"
-          android:title="Favorites" />
+        android:title=" Add Favorite" 
+        android:icon="@drawable/star_big_on"
+        android:showAsAction="ifRoom|withText"/>
 </menu>

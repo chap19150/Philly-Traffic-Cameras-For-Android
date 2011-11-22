@@ -13,4 +13,7 @@
         <item name="android:background">@null</item>
     </style>
     
+        <style name="Theme.AndroidDevelopers" parent="Theme.Sherlock.Light">
+        	<item name="abLogo">@drawable/header</item>    
+      	</style>
 </resources>

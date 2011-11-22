@@ -3,17 +3,18 @@ package com.chapslife.philly.traffic;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chapslife.philly.traffic.DashboardFragment.OnButtonSelectedListener;
-import com.chapslife.philly.traffic.adapters.InfoDetailsAdapter;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.SupportActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
+
+import com.chapslife.philly.traffic.adapters.InfoDetailsAdapter;
+import com.chapslife.philly.traffic.interfaces.OnCameraSelecterListener;
+import com.chapslife.philly.traffic.R;
 
 public class PAExpandableFragment extends Fragment{
 
@@ -33,6 +34,7 @@ public class PAExpandableFragment extends Fragment{
         initialPAData();
         setupPAView();
         layout.addView(paEpView);
+        
         return root;
 	}
 	
@@ -620,25 +622,25 @@ public class PAExpandableFragment extends Fragment{
                 		mURL = "http://www.dot35.state.pa.us/public/Districts/District5/WebCams/Rt33&Rt248.jpg";
         			}
                 }
-				mListener.onCameraSelected(mURL);
-				return false;
+				mListener.onCameraSelected(mURL,title,5000,"PA");
+				return false; 
 			}
 			
 		});
 	}
 	
-	OnCameraSelectedListener mListener;
+	OnCameraSelecterListener mListener;
 	
-	// Container Activity must implement this interface
+	/*// Container Activity must implement this interface
     public interface OnCameraSelectedListener {
-        public void onCameraSelected(String _url);
-    }
+        public void onCameraSelected(String _url, String _title);
+    }*/
     
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(SupportActivity activity) {
+    	super.onAttach(activity);
         try {
-            mListener = (OnCameraSelectedListener) activity;
+            mListener = (OnCameraSelecterListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnCameraSelectedListener");
         }

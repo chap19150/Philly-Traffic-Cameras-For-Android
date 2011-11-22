@@ -17,31 +17,34 @@
 <com.chapslife.philly.traffic.utils.DashboardLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF">
     
+    <Button android:id="@+id/home_btn_nj"
+        style="@style/DashboardButton"
+        android:text="NJ"
+        android:drawableTop="@drawable/nj" />
+    <Button android:id="@+id/home_btn_de"
+        style="@style/DashboardButton"
+        android:text="Delaware"
+        android:drawableTop="@drawable/de" />
+    <Button android:id="@+id/home_btn_pa"
+        style="@style/DashboardButton"
+        android:text="PA"
+        android:drawableTop="@drawable/pa" />
     <Button android:id="@+id/home_btn_alert"
         style="@style/DashboardButton"
         android:text="Alert"
         android:drawableTop="@drawable/alert" />
-    <Button android:id="@+id/home_btn_map"
-        style="@style/DashboardButton"
-        android:text="PA"
-        android:drawableTop="@drawable/dc" />
+    
     <Button android:id="@+id/home_btn_favorites"
         style="@style/DashboardButton"
         android:text="Favorites"
-        android:drawableTop="@drawable/favorites" />
+        android:drawableTop="@drawable/favs" />
     <Button android:id="@+id/home_btn_gas"
         style="@style/DashboardButton"
         android:text="Gas"
         android:drawableTop="@drawable/gas" />
-    <Button android:id="@+id/home_btn_nj"
-        style="@style/DashboardButton"
-        android:text="NJ"
-        android:drawableTop="@drawable/md" />
-    <Button android:id="@+id/home_btn_de"
-        style="@style/DashboardButton"
-        android:text="Delaware"
-        android:drawableTop="@drawable/va" />
+    
     
 </com.chapslife.philly.traffic.utils.DashboardLayout>

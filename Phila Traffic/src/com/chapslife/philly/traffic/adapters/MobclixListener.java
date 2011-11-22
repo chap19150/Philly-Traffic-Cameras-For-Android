@@ -14,8 +14,7 @@ public class MobclixListener implements MobclixAdViewListener {
 	private static final String LOG_TAG = MobclixListener.class.getSimpleName();
 	
 	public String keywords() {
-		// TODO Auto-generated method stub
-		return null;
+		return "travel,philadelphia,pennsylvania,delaware,new jersey,traffic,car,philly,insurance,vehicle,truck,road,driving";
 	}
 
 	public void onAdClick(MobclixAdView arg0) {
